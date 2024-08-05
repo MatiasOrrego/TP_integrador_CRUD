@@ -1,6 +1,6 @@
-import mysql2 from ("mysql2/promise")
+import mysql2 from "mysql2/promise"; //importamos la libreria mysql2/promise
 
-const newConnection = async () => {
+export const newConnection = async () => {
 
     const connection = await mysql2.createConnection ({
         host: "localhost",
@@ -9,7 +9,4 @@ const newConnection = async () => {
     })
 
     return connection
-}
-exports = {
-newConnection
 }
