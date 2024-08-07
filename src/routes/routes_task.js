@@ -1,20 +1,22 @@
-import { controllers } from '../controllers/task_controllers'
+
+import controllers from '../controllers/task_controllers.js';
 import express from 'express'
 
-const {getTask, getTaskId, postTask, putTask, deleteTask} = controllers
 export const router = express.Router()
 
 //obtener todas las tareas
-router.get('/tasks', getTask)
+router.get('/tasks', controllers.getTask)
 
 //obtener una tarea por id
-router.get('/tasks/:id', getTaskId)
+router.get('/task/:id', controllers.getTaskId)
 
 //crear una tarea
-router.post('/tasks', postTask)
+router.post('/tasks', controllers.postTask)
 
 //actualizar una tarea
-router.put('/tasks/:id', putTask)
+router.put('/task/:id', controllers.putTask)
 
 //eliminar una tarea
-router.delete('/tasks/:id', deleteTask)
+router.delete('/task/:id', controllers.deleteTask)
+
+export default router
