@@ -16,7 +16,7 @@ Este proyecto es una aplicación CRUD (Crear, Leer, Actualizar, Eliminar) de tar
    ```bash
    git clone https://github.com/MatiasOrrego/crud-tasks-backend.git
    ```
-2. Navega al directorio del proyecto:
+2. Navega al directorio del proyecto.
  
 3. Instala las dependencias:
    ```bash
