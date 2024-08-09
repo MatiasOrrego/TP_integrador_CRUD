@@ -2,7 +2,7 @@ import controllers from "../controllers/task_controllers.js";
 import express from "express";
 
 //llamo al middleware de applyvalidations
-import { applyValidations } from "../validation/applyvalidations.js";
+import { applyValidations } from "../middlewares/apply_validations.js";
 
 //llamo a la funcion de validacion
 import { postValidationTask } from "../validation/tasks_validation.js";

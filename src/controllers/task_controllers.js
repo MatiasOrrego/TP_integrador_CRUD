@@ -1,5 +1,5 @@
 import { db } from "../database/db.js";
-import { validationResult } from "express-validator";
+
 
 const controllers = {
   //obtener todas las tareas
@@ -77,7 +77,7 @@ const controllers = {
         res.status(200).json({ mensaje: "Tarea actualizada correctamente" });
 
     } 
-    
+
     catch (error) {
       res.status(500).json({ mensaje: "Error al actualizar la tarea" });
     }
