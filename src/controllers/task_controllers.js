@@ -41,13 +41,6 @@ const controllers = {
 
   //crear una tarea
   postTask: async (req, res) => {
-    const errores = validationResult(req);
-    
-    if(!errores.isEmpty()){
-
-        res.status(400).json({errores: errores.array()
-
-        })
     try {
       const { title, description, isComplete } = req.body;
 
@@ -57,33 +50,18 @@ const controllers = {
         "INSERT INTO tasks (title, description, isComplete) VALUES (?, ?, ?)",
         [title, description, isComplete]
       );
-
-      if (title === " " || description === " " || isComplete === " ") {
-        res
-          .status(400)
-          .json({ mensaje: "Por favor complete todos los campos" });
-      } else {
         res.status(201).json({ mensaje: "Tarea creada correctamente" });
-      }
-    } catch (error) {
+    }
+    catch (error) {
       res.status(500).json({ mensaje: "Error al crear la tarea" });
     }
-  }
-},
+  },
 
   //actualizar una tarea
   putTask: async (req, res) => {
     try {
       const { title, description, isComplete } = req.body;
       const { id } = req.params;
-
-      // Verificar que todos los campos estén completos
-      if (!title || !description || isComplete === undefined) {
-        return res
-          .status(400)
-          .json({ mensaje: "Por favor complete todos los campos" });
-      }
-
       const connection = await db();
 
       const [result] = await connection.query(
@@ -96,8 +74,11 @@ const controllers = {
         return res.status(404).json({ mensaje: "No se encontró la tarea" });
       }
 
-      res.status(200).json({ mensaje: "Tarea actualizada correctamente" });
-    } catch (error) {
+        res.status(200).json({ mensaje: "Tarea actualizada correctamente" });
+
+    } 
+    
+    catch (error) {
       res.status(500).json({ mensaje: "Error al actualizar la tarea" });
     }
   },
