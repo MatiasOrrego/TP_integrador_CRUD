@@ -2,10 +2,11 @@ import controllers from "../controllers/task_controllers.js";
 import express from "express";
 
 //llamo al middleware de applyvalidations
-import { applyValidations } from "../applyvalidations.js";
+import { applyValidations } from "../validation/applyvalidations.js";
 
 //llamo a la funcion de validacion
-import { validationTask } from "../validation.js";
+import { postValidationTask } from "../validation/tasks_validation.js";
+import { putValidationTask } from "../validation/tasks_validation.js";
 
 export const router = express.Router();
 
@@ -16,10 +17,10 @@ router.get("/", controllers.getTask);
 router.get("/:id", controllers.getTaskId);
 
 //crear una tarea
-router.post("/",validationTask, applyValidations, controllers.postTask);
+router.post("/", postValidationTask, applyValidations, controllers.postTask);
 
 //actualizar una tarea
-router.put("/:id",validationTask, applyValidations, controllers.putTask);
+router.put("/:id", putValidationTask, applyValidations, controllers.putTask);
 
 //eliminar una tarea
 router.delete("/:id", controllers.deleteTask);
