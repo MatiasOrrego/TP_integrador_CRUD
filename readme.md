@@ -17,18 +17,18 @@ Este proyecto es una aplicación CRUD (Crear, Leer, Actualizar, Eliminar) de tar
    git clone https://github.com/MatiasOrrego/crud-tasks-backend.git
    ```
 2. Navega al directorio del proyecto.
- 
+
 3. Instala las dependencias:
    ```bash
    npm install
    ```
 4. Configura la base de datos:
-   * Crea una base de datos llamada `tasks_db`.
-   * Crea una tabla llamada `tasks` con las siguientes columnas:
-      * `id` (INT, PRIMARY KEY, AUTO_INCREMENT)
-      * `title` (VARCHAR,255)
-      * `description` (TEXT)
-      * `isComplete` (BOOLEAN)
+   - Crea una base de datos llamada `tasks_db`.
+   - Crea una tabla llamada `tasks` con las siguientes columnas:
+     - `id` (INT, PRIMARY KEY, AUTO_INCREMENT)
+     - `title` (VARCHAR,255)
+     - `description` (TEXT)
+     - `isComplete` (BOOLEAN)
 
 ## Uso
 
@@ -40,10 +40,10 @@ Este proyecto es una aplicación CRUD (Crear, Leer, Actualizar, Eliminar) de tar
 
 ## Características
 
-* Crear tareas
-* Leer tareas
-* Actualizar tareas
-* Eliminar tareas
+- Crear tareas
+- Leer tareas
+- Actualizar tareas
+- Eliminar tareas
 
 ## Contribución
 

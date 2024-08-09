@@ -1,22 +1,27 @@
+import controllers from "../controllers/task_controllers.js";
+import express from "express";
 
-import controllers from '../controllers/task_controllers.js';
-import express from 'express'
+//llamo al middleware de applyvalidations
+import { applyValidations } from "../applyvalidations.js";
 
-export const router = express.Router()
+//llamo a la funcion de validacion
+import { validationTask } from "../validation.js";
+
+export const router = express.Router();
 
 //obtener todas las tareas
-router.get('/tasks', controllers.getTask)
+router.get("/", controllers.getTask);
 
 //obtener una tarea por id
-router.get('/task/:id', controllers.getTaskId)
+router.get("/:id", controllers.getTaskId);
 
 //crear una tarea
-router.post('/tasks', controllers.postTask)
+router.post("/",validationTask, applyValidations, controllers.postTask);
 
 //actualizar una tarea
-router.put('/task/:id', controllers.putTask)
+router.put("/:id",validationTask, applyValidations, controllers.putTask);
 
 //eliminar una tarea
-router.delete('/task/:id', controllers.deleteTask)
+router.delete("/:id", controllers.deleteTask);
 
-export default router
+export default router;
